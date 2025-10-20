@@ -1,11 +1,22 @@
-import styles from './Form.module.scss'
+import {ChangeEvent, useState} from "react";
+import styles from './Form.module.scss';
 
-export const Form = () => {
+export const Form = (props: {createNewTodo: Function}) => {
+  const [taskTitle, setTaskTitle] = useState<string>("");
+
+  const formSubmit = () => {
+    if(taskTitle.trim()){
+      props.createNewTodo(taskTitle)
+    }
+    setTaskTitle('')
+  }
+
+  
   return (
     <div className={styles.wrapper}>
-      <form action="#">
+      <form action="#" onSubmit={formSubmit}>
         <label>
-          <input type="text" />
+          <input type="text" onChange={e => setTaskTitle(e.target.value)} value={taskTitle}/>
           <button></button>
         </label>
       </form>
