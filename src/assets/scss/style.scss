@@ -10,7 +10,13 @@ body {
   color: black;
 }
 
-
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
 .todo-container {
   width: 100%;
